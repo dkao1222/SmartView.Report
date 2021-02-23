@@ -9,7 +9,7 @@ jobs:
   build:
     name: Build Web
     env:
-      my_secret:${{ secrets.COMMIT_SMARTVIEW }}
+      my_secret: ${{ secrets.COMMIT_SMARTVIEW }}
     runs-on: ubuntu-latest
 
     # Note that this workflow uses the latest stable version of the Dart SDK.

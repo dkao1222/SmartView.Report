@@ -26,7 +26,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          channel: 'beta'
+          channel: 'dev'
       - run: flutter upgrade
       - run: flutter config --enable-web
       - run: flutter config --enable-windows-desktop

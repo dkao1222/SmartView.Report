@@ -95,7 +95,10 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[Text('User Name'), Text('Password')],
+          children: <Widget>[
+            Text('User Name'),
+            Text('Password'),
+          ],
         ),
       ),
     );

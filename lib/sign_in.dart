@@ -20,9 +20,15 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
+
+final firestoreInstance = FirebaseFirestore.instance;
+
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
 String name;
@@ -56,9 +62,31 @@ Future<String> signInWithGoogle() async {
     imageUrl = user.photoURL;
 
     // Only taking the first part of the name, i.e., First Name
-    /*if (name.contains(" ")) {
+    /*
+    if (name.contains(" ")) {
       name = name.substring(0, name.indexOf(" "));
-    }*/
+    }
+    */
+
+    firestoreInstance.collection("users").doc(user.uid).set({
+      "name": name,
+      "photo": user.photoURL,
+      "company": "",
+      "job title": "",
+      "age": "",
+      "email": email,
+      "address": {"street": "", "city": ""},
+      "status": false
+    }).then((_) {
+      print("success!");
+    });
+
+    firestoreInstance
+        .collection("users")
+        .doc(user.uid)
+        .update({"status": true}).then((_) {
+      print("success!");
+    });
 
     assert(!user.isAnonymous);
     assert(await user.getIdToken() != null);
@@ -75,6 +103,29 @@ Future<String> signInWithGoogle() async {
 }
 
 Future<void> signOutGoogle() async {
+  await Firebase.initializeApp();
+
+  final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
+  final GoogleSignInAuthentication googleSignInAuthentication =
+      await googleSignInAccount.authentication;
+
+  final AuthCredential credential = GoogleAuthProvider.credential(
+    accessToken: googleSignInAuthentication.accessToken,
+    idToken: googleSignInAuthentication.idToken,
+  );
+
+  final UserCredential authResult =
+      await _auth.signInWithCredential(credential);
+
+  final User user = authResult.user;
+
+  firestoreInstance
+      .collection("users")
+      .doc(user.uid)
+      .update({"status": false}).then((_) {
+    print("success!");
+  });
+
   await googleSignIn.signOut();
 
   print("User Signed Out");

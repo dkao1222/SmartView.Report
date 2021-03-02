@@ -40,7 +40,12 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               //FlutterLogo(size: 150),
-              Image(image: AssetImage("assets/LOGO_L.jpg"), height: 150.0),
+              //Image(image: AssetImage("assets/LOGO_L.jpg"), height: 150.0),
+              Image.asset(
+                'assets/LOGO_L.jpg',
+                width: 150,
+                height: 150,
+              ),
               SizedBox(height: 50),
               _signInButton(),
             ],

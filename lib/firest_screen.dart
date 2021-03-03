@@ -121,6 +121,8 @@ class FirstScreen extends StatelessWidget {
             ),
             child: Center(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   RaisedButton(
                     onPressed: () {},

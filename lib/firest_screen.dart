@@ -30,6 +30,7 @@ class FirstScreen extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
+            width: MediaQuery.of(context).size.width / 10,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topRight,
@@ -111,6 +112,47 @@ class FirstScreen extends StatelessWidget {
             color: Colors.greenAccent,
             width: MediaQuery.of(context).size.width -
                 (MediaQuery.of(context).size.width / 10),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [Colors.grey[100], Colors.grey[400]],
+              ),
+            ),
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  RaisedButton(
+                    onPressed: () {},
+                    color: Colors.deepPurple[50],
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Dashboard',
+                        style: TextStyle(fontSize: 12, color: Colors.black),
+                      ),
+                    ),
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                  ),
+                  RaisedButton(
+                    onPressed: () {},
+                    color: Colors.deepPurple[50],
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Report Work',
+                        style: TextStyle(fontSize: 12, color: Colors.black),
+                      ),
+                    ),
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                  ),
+                ],
+              ),
+            ),
           ),
           flex: 5,
         ),

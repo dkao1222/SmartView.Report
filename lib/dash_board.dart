@@ -6,6 +6,9 @@ class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Dashboard'),
+      ),
       body: Column(
         children: <Widget>[
           Expanded(

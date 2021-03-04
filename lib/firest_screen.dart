@@ -21,6 +21,7 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'sign_in.dart';
+import 'dash_board.dart';
 
 class FirstScreen extends StatelessWidget {
   @override
@@ -137,7 +138,15 @@ class FirstScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return DashBoard();
+                          },
+                        ),
+                      );
+                    },
                     color: Colors.deepPurple[50],
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

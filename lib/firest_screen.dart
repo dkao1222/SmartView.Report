@@ -139,7 +139,7 @@ class FirstScreen extends StatelessWidget {
                 children: <Widget>[
                   RaisedButton(
                     onPressed: () {
-                      Navigator.of(context).push(
+                      Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
                           builder: (context) {
                             return DashBoard();

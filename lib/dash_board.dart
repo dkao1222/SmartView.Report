@@ -7,10 +7,13 @@ class DashBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [
+        children: <Widget>[
           Expanded(
             child: Container(
-              width: MediaQuery.of(context).size.width / 10,
+              //width: MediaQuery.of(context).size.width / 10,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.blueAccent),
+              ),
               child: FittedBox(
                 fit: BoxFit.fitWidth,
                 child: Text('Pre Chart Div 1'),
@@ -19,7 +22,10 @@ class DashBoard extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              width: MediaQuery.of(context).size.width / 10,
+              //width: MediaQuery.of(context).size.width / 10,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.blueAccent),
+              ),
               child: FittedBox(
                 fit: BoxFit.fitWidth,
                 child: Text('Pre Chart Div 2'),
@@ -28,7 +34,10 @@ class DashBoard extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              width: MediaQuery.of(context).size.width / 10,
+              //width: MediaQuery.of(context).size.width / 10,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.blueAccent),
+              ),
               child: FittedBox(
                 fit: BoxFit.fitWidth,
                 child: Text('Pre Chart Div 1'),

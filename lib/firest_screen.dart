@@ -139,12 +139,13 @@ class FirstScreen extends StatelessWidget {
                 children: <Widget>[
                   RaisedButton(
                     onPressed: () {
-                      Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                        builder: (context) {
-                          return DashBoard();
-                        },
-                      ), ModalRoute.withName('/'));
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return DashBoard();
+                          },
+                        ),
+                      );
                     },
                     color: Colors.deepPurple[50],
                     child: Padding(

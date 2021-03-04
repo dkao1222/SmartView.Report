@@ -43,12 +43,15 @@ class FirstScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
-                  CircleAvatar(
-                    backgroundImage: NetworkImage(
-                      imageUrl,
+                  FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        imageUrl,
+                      ),
+                      radius: 60,
+                      backgroundColor: Colors.transparent,
                     ),
-                    radius: 60,
-                    backgroundColor: Colors.transparent,
                   ),
                   SizedBox(height: 20),
                   Text(
@@ -87,26 +90,29 @@ class FirstScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 20),
-                  RaisedButton(
-                    onPressed: () {
-                      signOutGoogle();
-                      Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(builder: (context) {
-                        return LoginPage();
-                      }), ModalRoute.withName('/'));
-                    },
-                    color: Colors.deepPurple,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Sign Out',
-                        style: TextStyle(fontSize: 12, color: Colors.white),
+                  FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: RaisedButton(
+                      onPressed: () {
+                        signOutGoogle();
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(builder: (context) {
+                          return LoginPage();
+                        }), ModalRoute.withName('/'));
+                      },
+                      color: Colors.deepPurple,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Sign Out',
+                          style: TextStyle(fontSize: 12, color: Colors.white),
+                        ),
                       ),
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40)),
                     ),
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                  )
+                  ),
                 ],
               ),
             ),

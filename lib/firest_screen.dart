@@ -58,12 +58,15 @@ class FirstScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: Colors.black54),
                   ),
-                  Text(
-                    name,
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.deepPurple,
-                        fontWeight: FontWeight.bold),
+                  FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      name,
+                      style: TextStyle(
+                          //fontSize: 12,
+                          color: Colors.deepPurple,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                   SizedBox(height: 20),
                   Text(
@@ -73,12 +76,15 @@ class FirstScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: Colors.black54),
                   ),
-                  Text(
-                    email,
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.deepPurple,
-                        fontWeight: FontWeight.bold),
+                  FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      email,
+                      style: TextStyle(
+                          //fontSize: 12,
+                          color: Colors.deepPurple,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                   SizedBox(height: 20),
                   RaisedButton(

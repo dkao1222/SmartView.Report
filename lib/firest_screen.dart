@@ -22,164 +22,169 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'sign_in.dart';
 import 'dash_board.dart';
+import '_google_sheets.dart';
+import '_shp_table_row.dart';
+import '_shp_table_detail.dart';
 
 class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Row(
-      children: [
-        Expanded(
-          child: Container(
-            width: MediaQuery.of(context).size.width / 10,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [Colors.blue[100], Colors.blue[400]],
+      body: Row(
+        children: [
+          Expanded(
+            child: Container(
+              width: MediaQuery.of(context).size.width / 10,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Colors.blue[100], Colors.blue[400]],
+                ),
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          imageUrl,
+                        ),
+                        radius: 60,
+                        backgroundColor: Colors.transparent,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'NAME',
+                      style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        name,
+                        style: TextStyle(
+                            //fontSize: 12,
+                            color: Colors.deepPurple,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'EMAIL',
+                      style: TextStyle(
+                          fontSize: 8,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        email,
+                        style: TextStyle(
+                            //fontSize: 12,
+                            color: Colors.deepPurple,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: RaisedButton(
+                        onPressed: () {
+                          signOutGoogle();
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(builder: (context) {
+                            return LoginPage();
+                          }), ModalRoute.withName('/'));
+                        },
+                        color: Colors.deepPurple,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Sign Out',
+                            style: TextStyle(fontSize: 12, color: Colors.white),
+                          ),
+                        ),
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40)),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        imageUrl,
-                      ),
-                      radius: 60,
-                      backgroundColor: Colors.transparent,
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    'NAME',
-                    style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54),
-                  ),
-                  FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text(
-                      name,
-                      style: TextStyle(
-                          //fontSize: 12,
-                          color: Colors.deepPurple,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    'EMAIL',
-                    style: TextStyle(
-                        fontSize: 8,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54),
-                  ),
-                  FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text(
-                      email,
-                      style: TextStyle(
-                          //fontSize: 12,
-                          color: Colors.deepPurple,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: RaisedButton(
+            flex: 1,
+          ),
+          Expanded(
+            child: Container(
+              color: Colors.greenAccent,
+              width: MediaQuery.of(context).size.width -
+                  (MediaQuery.of(context).size.width / 10),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Colors.grey[100], Colors.grey[400]],
+                ),
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    RaisedButton(
                       onPressed: () {
-                        signOutGoogle();
                         Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(builder: (context) {
-                          return LoginPage();
-                        }), ModalRoute.withName('/'));
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return ShppingDetail();
+                            },
+                          ),
+                          ModalRoute.withName('/'),
+                        );
                       },
-                      color: Colors.deepPurple,
+                      color: Colors.deepPurple[50],
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          'Sign Out',
-                          style: TextStyle(fontSize: 12, color: Colors.white),
+                          'Dashboard',
+                          style: TextStyle(fontSize: 12, color: Colors.black),
                         ),
                       ),
                       elevation: 5,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)),
                     ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          flex: 1,
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.greenAccent,
-            width: MediaQuery.of(context).size.width -
-                (MediaQuery.of(context).size.width / 10),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [Colors.grey[100], Colors.grey[400]],
-              ),
-            ),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  RaisedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return DashBoard();
-                          },
+                    RaisedButton(
+                      onPressed: () {},
+                      color: Colors.deepPurple[50],
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Report Work',
+                          style: TextStyle(fontSize: 12, color: Colors.black),
                         ),
-                      );
-                    },
-                    color: Colors.deepPurple[50],
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Dashboard',
-                        style: TextStyle(fontSize: 12, color: Colors.black),
                       ),
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40)),
                     ),
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                  ),
-                  RaisedButton(
-                    onPressed: () {},
-                    color: Colors.deepPurple[50],
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Report Work',
-                        style: TextStyle(fontSize: 12, color: Colors.black),
-                      ),
-                    ),
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
+            flex: 5,
           ),
-          flex: 5,
-        ),
-      ],
-    ));
+        ],
+      ),
+    );
   }
 }

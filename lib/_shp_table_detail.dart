@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_sampple/_shp_table_row.dart';
+import '_shp_table_row.dart';
 import '_google_sheets.dart';
 //import 'dart:convert';
 

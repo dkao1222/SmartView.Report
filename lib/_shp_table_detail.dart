@@ -26,7 +26,7 @@ class ShppingDetail extends StatelessWidget {
           for (var i = 0; i < snapshot.data.length; i++) {
             childrens.add(
               new DataRow(
-                cells: [
+                cells: <DataCell>[
                   DataCell(Text('Teams Name:${snapshot.data[i].teamsName}')),
                   DataCell(Text('Teams Name:${snapshot.data[i].teamOrde}')),
                   DataCell(Text('Teams Name:${snapshot.data[i].shpt}')),

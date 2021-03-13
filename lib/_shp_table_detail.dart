@@ -21,7 +21,7 @@ class ShppingDetail extends StatelessWidget {
           return ListView();
         }
         if (snapshot.hasData) {
-          final childrens = <wi[];
+          final childrens = <DataRow>[];
 
           for (var i = 0; i < snapshot.data.length; i++) {
             childrens.add(

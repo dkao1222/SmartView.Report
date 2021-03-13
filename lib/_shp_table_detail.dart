@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import '_shp_table_row.dart';
@@ -21,33 +20,9 @@ class ShppingDetail extends StatelessWidget {
           return ListView();
         }
         if (snapshot.hasData) {
-          final childrens = [];
-          /*
-          for (var i = 0; i < snapshot.data.length; i++) {
-            childrens.add(
-              new DataRow(
-                cells: [
-                  DataCell(Text('Teams Name:${snapshot.data[i].teamsName}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].teamOrde}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].shpt}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].dp}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].delivery}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].items}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].shipTo}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].shipmentNo}')),
-                  DataCell(
-                      Text('Teams Name:${snapshot.data[i].shipmentDateTime}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].serviceStart}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].serviceEnd}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].kpi}')),
-                  DataCell(Text('Teams Name:${snapshot.data[i].status}')),
-                ],
-              ),
-            );
-          }
-          */
+          final childrens = <Widget>[];
 
-          /*
+          for (var i = 0; i < snapshot.data.length; i++) {
             childrens.add(
               new ListView(
                 children: [
@@ -96,36 +71,8 @@ class ShppingDetail extends StatelessWidget {
               ),
             );
           }
-          
-          return new PageView(children: childrens);
-          */
-          return new SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: DataTable(
-                  sortColumnIndex: 10,
-                  sortAscending: true,
-                  columns: [
-                    DataColumn(label: Text('Teams Name')),
-                    DataColumn(label: Text('Teams Orde')),
-                    DataColumn(label: Text('Shpt')),
-                    DataColumn(label: Text('DP')),
-                    DataColumn(label: Text('Delivery')),
-                    DataColumn(label: Text('items')),
-                    DataColumn(label: Text('ShipTo')),
-                    DataColumn(label: Text('Shipment')),
-                    DataColumn(label: Text('Create Date/Time')),
-                    DataColumn(label: Text('Service Start')),
-                    DataColumn(label: Text('Service End')),
-                    DataColumn(label: Text('KPI')),
-                    DataColumn(label: Text('Status')),
-                  ],
-                  rows: childrens),
-            ),
 
-            //);
-          );
+          return new PageView(children: childrens);
         }
 
         //return new

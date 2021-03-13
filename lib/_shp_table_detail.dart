@@ -98,22 +98,33 @@ class ShppingDetail extends StatelessWidget {
           
           return new PageView(children: childrens);
           */
+          return new SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                  sortColumnIndex: 10,
+                  sortAscending: true,
+                  columns: [
+                    DataColumn(label: Text('Teams Name')),
+                    DataColumn(label: Text('Teams Orde')),
+                    DataColumn(label: Text('Shpt')),
+                    DataColumn(label: Text('DP')),
+                    DataColumn(label: Text('Delivery')),
+                    DataColumn(label: Text('items')),
+                    DataColumn(label: Text('ShipTo')),
+                    DataColumn(label: Text('Shipment')),
+                    DataColumn(label: Text('Create Date/Time')),
+                    DataColumn(label: Text('Service Start')),
+                    DataColumn(label: Text('Service End')),
+                    DataColumn(label: Text('KPI')),
+                    DataColumn(label: Text('Status')),
+                  ],
+                  rows: childrens),
+            ),
 
-          return new DataTable(columns: [
-            DataColumn(label: Text('Teams Name')),
-            DataColumn(label: Text('Teams Orde')),
-            DataColumn(label: Text('Shpt')),
-            DataColumn(label: Text('DP')),
-            DataColumn(label: Text('Delivery')),
-            DataColumn(label: Text('items')),
-            DataColumn(label: Text('ShipTo')),
-            DataColumn(label: Text('Shipment')),
-            DataColumn(label: Text('Create Date/Time')),
-            DataColumn(label: Text('Service Start')),
-            DataColumn(label: Text('Service End')),
-            DataColumn(label: Text('KPI')),
-            DataColumn(label: Text('Status')),
-          ], rows: childrens);
+            //);
+          );
         }
 
         //return new

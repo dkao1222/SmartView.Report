@@ -22,7 +22,7 @@ class ShppingDetail extends StatelessWidget {
         }
         if (snapshot.hasData) {
           final childrens = [];
-
+          /*
           for (var i = 0; i < snapshot.data.length; i++) {
             childrens.add(
               new DataRow(
@@ -45,6 +45,7 @@ class ShppingDetail extends StatelessWidget {
               ),
             );
           }
+          */
 
           /*
             childrens.add(

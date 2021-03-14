@@ -9,7 +9,7 @@ import '_google_sheets.dart';
 //final detailValue = getShpTableALL();
 
 class ShppingDetail extends StatelessWidget {
-  List datas;
+  //List datas;
   @override
   Widget build(BuildContext context) {
     //getShpTableALL();
@@ -21,6 +21,7 @@ class ShppingDetail extends StatelessWidget {
           return ListView();
         }
         if (snapshot.hasData) {
+          /*
           final childrens = <DataRow>[];
 
           for (var i = 0; i < snapshot.data.length; i++) {
@@ -45,6 +46,8 @@ class ShppingDetail extends StatelessWidget {
               ),
             );
           }
+
+          */
 
           /*
             childrens.add(
@@ -98,25 +101,48 @@ class ShppingDetail extends StatelessWidget {
           
           return new PageView(children: childrens);
           */
-          return new DataTable(
-              sortColumnIndex: 10,
-              sortAscending: true,
-              columns: [
-                DataColumn(label: Text('Teams Name')),
-                DataColumn(label: Text('Teams Orde')),
-                DataColumn(label: Text('Shpt')),
-                DataColumn(label: Text('DP')),
-                DataColumn(label: Text('Delivery')),
-                DataColumn(label: Text('items')),
-                DataColumn(label: Text('ShipTo')),
-                DataColumn(label: Text('Shipment')),
-                DataColumn(label: Text('Create Date/Time')),
-                DataColumn(label: Text('Service Start')),
-                DataColumn(label: Text('Service End')),
-                DataColumn(label: Text('KPI')),
-                DataColumn(label: Text('Status')),
-              ],
-              rows: childrens);
+          return new SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: FittedBox(
+                child: DataTable(
+                  //rowsPerPage: 20,
+                  sortColumnIndex: 4,
+                  sortAscending: true,
+                  columns: const <DataColumn>[
+                    DataColumn(label: Text('Teams Name')),
+                    //DataColumn(label: Text('Teams Orde')),
+                    //DataColumn(label: Text('Shpt')),
+                    //DataColumn(label: Text('DP')),
+                    DataColumn(label: Text('Delivery')),
+                    DataColumn(label: Text('items')),
+
+                    //DataColumn(label: Text('ShipTo')),
+                    //DataColumn(label: Text('Shipment')),
+                    //DataColumn(label: Text('Create Date/Time')),
+                    //DataColumn(label: Text('Service Start')),
+                    DataColumn(label: Text('Service End')),
+                    DataColumn(label: Text('KPI')),
+                    DataColumn(label: Text('Status')),
+                  ],
+                  //source: childrens.),
+                  rows: snapshot.data
+                      .map(
+                        (e) => DataRow(cells: [
+                          DataCell(Text(e.teamsName)),
+                          DataCell(Text(e.delivery)),
+                          DataCell(Text(e.items.toString())),
+                          DataCell(Text(e.serviceEnd.toString())),
+                          DataCell(Text(e.kpi.toString())),
+                          DataCell(Text(e.status)),
+                        ]),
+                      )
+                      .toList(),
+                ),
+              ),
+            ),
+          );
         }
 
         //return new

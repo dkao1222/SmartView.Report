@@ -56,11 +56,11 @@ class ShpTable {
       shipTo: json['ShipTo'].toString().trim(),
       shipmentNo: json['ShipmentNo'].toString().trim(),
       shipmentDateTime: DateTime.fromMillisecondsSinceEpoch(
-          int.tryParse(json['ShipmentDateTime'] ?? '') , isUtc: false),
+          int.tryParse(json['ShipmentDateTime'] ?? '') , isUtc: true),
       serviceStart: DateTime.fromMillisecondsSinceEpoch(
-          int.tryParse(json['Service_Start'] ?? '') , isUtc: false),
+          int.tryParse(json['Service_Start'] ?? '') , isUtc: true),
       serviceEnd: DateTime.fromMillisecondsSinceEpoch(
-          int.tryParse(json['Service_End'] ?? '') , isUtc: false),
+          int.tryParse(json['Service_End'] ?? '') , isUtc: true),
       kpi: int.tryParse(json['KPI_Hour'] ?? ''),
       status: json['STATUS'].toString().trim(),
       shpCondition: json['SHPCondition'].toString().trim(),

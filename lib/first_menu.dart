@@ -32,13 +32,13 @@ class FirstMenu extends StatelessWidget {
           bottom: TabBar(
             tabs: <Widget>[
               Tab(
-                text: 'Dashboard',
+                text: 'DB',
               ),
               Tab(
-                text: 'Shipping',
+                text: 'SHP',
               ),
               Tab(
-                text: 'Receiving',
+                text: 'RCV',
               ),
               Tab(
                 text: 'IS',
@@ -47,7 +47,7 @@ class FirstMenu extends StatelessWidget {
                 text: 'QA',
               ),
               Tab(
-                text: 'Reverse',
+                text: 'RVC',
               )
             ],
           ),

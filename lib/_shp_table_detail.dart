@@ -24,6 +24,27 @@ class ShppingDetail extends StatelessWidget {
           final childrens = <Widget>[];
 
           for (var i = 0; i < snapshot.data.length; i++) {
+            var checkDateTime =
+                snapshot.data[i].serviceEnd.difference(DateTime.now());
+            //rgba(236, 240, 241,1.0) white
+            //rgba(149, 165, 166,1.0) gray
+            //rgba(231, 76, 60,1.0) red
+            //rgba(243, 156, 18,1.0) yellow
+            //rgba(46, 204, 113,1.0) green
+            var cardcolord = new Color.fromRGBO(236, 240, 241, 1.0);
+            if (checkDateTime.inMinutes < 0) {
+              cardcolord = Color.fromRGBO(236, 240, 241, 1.0);
+            } else if (checkDateTime.inMinutes >= 60 &&
+                checkDateTime.inMinutes < 120) {
+              cardcolord = Color.fromRGBO(231, 76, 60, 1.0);
+            } else if (checkDateTime.inMinutes >= 120 &&
+                checkDateTime.inMinutes < 240) {
+              cardcolord = Color.fromRGBO(243, 156, 18, 1.0);
+            } else {
+              cardcolord = Color.fromRGBO(46, 204, 113, 1.0);
+            }
+            //print(checkDateTime.difference(snapshot.data[i].serviceEnd));
+
             var iconset = new Icon(Icons.hourglass_full);
             if (snapshot.data[i].status == 'Failed - WaitPGI') {
               iconset = Icon(
@@ -36,6 +57,128 @@ class ShppingDetail extends StatelessWidget {
                 color: Colors.green,
               );
             }
+
+            childrens.add(
+              new Card(
+                color: cardcolord,
+                child: ListTile(
+                  leading: iconset,
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text(
+                        'DN:',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Expanded(
+                        child: Text(
+                          '${snapshot.data[i].delivery.toString().trim()}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Text(
+                        'Items:',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Expanded(
+                        child: Text(
+                          '${snapshot.data[i].items.toString().trim()}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Text(
+                        'Team:',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Expanded(
+                        child: Text(
+                          '${snapshot.data[i].teamsName.toString().trim()}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Text(
+                        'Type:',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Expanded(
+                        child: Text(
+                          '${snapshot.data[i].teamsName.toString().trim()}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Text(
+                        'Status:',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Expanded(
+                        child: Text(
+                          '${snapshot.data[i].status.toString().trim()}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                  subtitle: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(
+                              'Shipment: ${snapshot.data[i].shipmentNo}',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Expanded(
+                            child: Text(
+                                'shpt: ${snapshot.data[i].shpt.toString().trim()}'),
+                          ),
+                          Expanded(
+                            child: Text(
+                                'DP: ${snapshot.data[i].dp.toString().trim()}'),
+                          ),
+                          Expanded(
+                            child: Text(
+                                'Ship-To: ${snapshot.data[i].shipTo.toString().trim()}'),
+                          ),
+                          Expanded(
+                            child: Text(
+                                '${snapshot.data[i].shipmentDateTime.toString().trim()}'),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(
+                              'Start: ${snapshot.data[i].serviceStart}',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Expanded(
+                            child: Text(
+                              'KPI: ${snapshot.data[i].kpi}',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Expanded(
+                            child: Text(
+                              'End: ${snapshot.data[i].serviceEnd}',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                    //),
+                  ),
+                  //],
+                  dense: true,
+                ),
+              ),
+            );
+            /*
             childrens.add(new Container(
                 //shrinkWrap: true,
                 //scrollDirection: Axis.horizontal,
@@ -128,6 +271,7 @@ class ShppingDetail extends StatelessWidget {
                     ),
                   ],
                 )));
+                */
           }
 
           return new ListView(

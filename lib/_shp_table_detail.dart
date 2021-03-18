@@ -34,11 +34,11 @@ class ShppingDetail extends StatelessWidget {
             var cardcolord = new Color.fromRGBO(236, 240, 241, 1.0);
             if (checkDateTime.inMinutes < 0) {
               cardcolord = Color.fromRGBO(236, 240, 241, 1.0);
-            } else if (checkDateTime.inMinutes >= 60 &&
-                checkDateTime.inMinutes < 120) {
+            } else if (checkDateTime.inMinutes > 0 &&
+                checkDateTime.inMinutes <= 60) {
               cardcolord = Color.fromRGBO(231, 76, 60, 1.0);
-            } else if (checkDateTime.inMinutes >= 120 &&
-                checkDateTime.inMinutes < 240) {
+            } else if (checkDateTime.inMinutes > 60 &&
+                checkDateTime.inMinutes < 120) {
               cardcolord = Color.fromRGBO(243, 156, 18, 1.0);
             } else {
               cardcolord = Color.fromRGBO(46, 204, 113, 1.0);

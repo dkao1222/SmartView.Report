@@ -30,6 +30,7 @@ class FirstMenu extends StatelessWidget {
             ),
           ],
           bottom: TabBar(
+            isScrollable: true,
             tabs: <Widget>[
               Tab(
                 text: 'DB',

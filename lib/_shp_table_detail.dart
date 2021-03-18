@@ -24,14 +24,14 @@ class ShppingDetail extends StatelessWidget {
           final childrens = <Widget>[];
 
           for (var i = 0; i < snapshot.data.length; i++) {
-            var checkDateTime =
-                snapshot.data[i].serviceEnd.difference(DateTime.now());
+            var checkDateTime = snapshot.data[i].serviceEnd
+                .difference(DateTime.now().add(Duration(hours: -8)));
             //rgba(236, 240, 241,1.0) white
             //rgba(149, 165, 166,1.0) gray
             //rgba(231, 76, 60,1.0) red
             //rgba(243, 156, 18,1.0) yellow
             //rgba(46, 204, 113,1.0) green
-            /*
+
             var cardcolord = new Color.fromRGBO(236, 240, 241, 1.0);
             if (checkDateTime.inMinutes < 0) {
               cardcolord = Color.fromRGBO(236, 240, 241, 1.0);
@@ -44,7 +44,7 @@ class ShppingDetail extends StatelessWidget {
             } else {
               cardcolord = Color.fromRGBO(46, 204, 113, 1.0);
             }
-            */
+
             //print(checkDateTime.difference(snapshot.data[i].serviceEnd));
 
             var iconset = new Icon(Icons.hourglass_full);
@@ -62,7 +62,7 @@ class ShppingDetail extends StatelessWidget {
 
             childrens.add(
               new Card(
-                //color: cardcolord,
+                color: cardcolord,
                 child: ListTile(
                   leading: iconset,
                   title: Row(

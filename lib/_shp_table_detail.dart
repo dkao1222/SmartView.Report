@@ -31,6 +31,7 @@ class ShppingDetail extends StatelessWidget {
             //rgba(231, 76, 60,1.0) red
             //rgba(243, 156, 18,1.0) yellow
             //rgba(46, 204, 113,1.0) green
+            /*
             var cardcolord = new Color.fromRGBO(236, 240, 241, 1.0);
             if (checkDateTime.inMinutes < 0) {
               cardcolord = Color.fromRGBO(236, 240, 241, 1.0);
@@ -43,6 +44,7 @@ class ShppingDetail extends StatelessWidget {
             } else {
               cardcolord = Color.fromRGBO(46, 204, 113, 1.0);
             }
+            */
             //print(checkDateTime.difference(snapshot.data[i].serviceEnd));
 
             var iconset = new Icon(Icons.hourglass_full);
@@ -60,7 +62,7 @@ class ShppingDetail extends StatelessWidget {
 
             childrens.add(
               new Card(
-                color: cardcolord,
+                //color: cardcolord,
                 child: ListTile(
                   leading: iconset,
                   title: Row(

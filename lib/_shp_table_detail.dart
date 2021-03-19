@@ -24,8 +24,12 @@ class ShppingDetail extends StatelessWidget {
           final childrens = <Widget>[];
 
           for (var i = 0; i < snapshot.data.length; i++) {
+            /*
             var checkDateTime = snapshot.data[i].serviceEnd
                 .difference(DateTime.now().add(Duration(hours: -8)));
+                */
+             var checkDateTime = snapshot.data[i].serviceEnd
+                .difference(DateTime.now().toUtc());
             //rgba(236, 240, 241,1.0) white
             //rgba(149, 165, 166,1.0) gray
             //rgba(231, 76, 60,1.0) red

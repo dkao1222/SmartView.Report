@@ -28,8 +28,20 @@ class ShppingDetail extends StatelessWidget {
             var checkDateTime = snapshot.data[i].serviceEnd
                 .difference(DateTime.now().add(Duration(hours: -8)));
                 */
-             var checkDateTime = snapshot.data[i].serviceEnd
-                .difference(DateTime.now().toUtc());
+            var shipmentDate = DateTime.tryParse(
+                    snapshot.data[i].shipmentDateTime.toString() ?? '')
+                .add(Duration(hours: -8));
+            //snapshot.data[i].shipmentDateTime.toString().trim()
+            var serviceStart = DateTime.tryParse(
+                    snapshot.data[i].serviceStart.toString() ?? '')
+                .add(Duration(hours: -8));
+
+            var serviceEnd =
+                DateTime.tryParse(snapshot.data[i].serviceEnd.toString() ?? '')
+                    .add(Duration(hours: -8));
+
+            var checkDateTime = serviceEnd.difference(DateTime.now());
+
             //rgba(236, 240, 241,1.0) white
             //rgba(149, 165, 166,1.0) gray
             //rgba(231, 76, 60,1.0) red
@@ -148,8 +160,7 @@ class ShppingDetail extends StatelessWidget {
                                 'Ship-To: ${snapshot.data[i].shipTo.toString().trim()}'),
                           ),
                           Expanded(
-                            child: Text(
-                                '${snapshot.data[i].shipmentDateTime.toString().trim()}'),
+                            child: Text('${shipmentDate}'),
                           ),
                         ],
                       ),
@@ -158,7 +169,7 @@ class ShppingDetail extends StatelessWidget {
                         children: <Widget>[
                           Expanded(
                             child: Text(
-                              'Start: ${snapshot.data[i].serviceStart}',
+                              'Start: ${serviceStart}',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -170,7 +181,7 @@ class ShppingDetail extends StatelessWidget {
                           ),
                           Expanded(
                             child: Text(
-                              'End: ${snapshot.data[i].serviceEnd}',
+                              'End: ${serviceEnd}',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),

@@ -33,7 +33,7 @@ class ShppingDetail extends StatelessWidget {
                 //.add(Duration(hours: -8));
             //snapshot.data[i].shipmentDateTime.toString().trim()
             var serviceStart = DateTime.tryParse(
-                    snapshot.data[i].serviceStart.toString() ?? ''));
+                    snapshot.data[i].serviceStart.toString() ?? '');
                 //.add(Duration(hours: -8));
 
             var serviceEnd =

@@ -8,6 +8,7 @@ import 'dash_board.dart';
 import '_google_sheets.dart';
 import '_shp_table_row.dart';
 import '_shp_table_detail.dart';
+import '_chart_shp.dart';
 
 class FirstMenu extends StatelessWidget {
   @override
@@ -56,7 +57,7 @@ class FirstMenu extends StatelessWidget {
         body: TabBarView(
           children: <Widget>[
             Center(
-              child: Text('Dashboard'),
+              child: ChartMaterial(),
             ),
             Center(
               child: ShppingDetail(),

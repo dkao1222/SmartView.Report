@@ -3,7 +3,7 @@ import 'dart:html';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart';
-import 'package:flutter_firebase_sampple/_google_sheets.dart';
+import '_google_sheets.dart';
 import '_shp_table_row.dart';
 import '_google_sheets.dart';
 

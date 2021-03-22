@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '_shp_table_row.dart';
 import '_google_sheets.dart';
 //import 'dart:convert';
@@ -29,33 +30,36 @@ class ShppingDetail extends StatelessWidget {
                 .difference(DateTime.now().add(Duration(hours: -8)));
                 */
             var shipmentDate = DateTime.tryParse(
-                    snapshot.data[i].shipmentDateTime.toString() ?? '');
-                //.add(Duration(hours: -8));
+                    snapshot.data[i].shipmentDateTime.toString() ?? '')
+                .add(Duration(hours: -8));
             //snapshot.data[i].shipmentDateTime.toString().trim()
             var serviceStart = DateTime.tryParse(
-                    snapshot.data[i].serviceStart.toString() ?? '');
-                //.add(Duration(hours: -8));
+                    snapshot.data[i].serviceStart.toString() ?? '')
+                .add(Duration(hours: -8));
 
             var serviceEnd =
-                DateTime.tryParse(snapshot.data[i].serviceEnd.toString() ?? '');
-                    //.add(Duration(hours: -8));
+                DateTime.tryParse(snapshot.data[i].serviceEnd.toString() ?? '')
+                    .add(Duration(hours: -8));
 
             var checkDateTime = serviceEnd.difference(DateTime.now());
-
+            print(checkDateTime.inMinutes);
             //rgba(236, 240, 241,1.0) white
             //rgba(149, 165, 166,1.0) gray
             //rgba(231, 76, 60,1.0) red
             //rgba(243, 156, 18,1.0) yellow
             //rgba(46, 204, 113,1.0) green
-            print('${checkDateTime.inMinutes}');
+
             var cardcolord = new Color.fromRGBO(236, 240, 241, 1.0);
             if (checkDateTime.inMinutes < 0) {
               cardcolord = Color.fromRGBO(236, 240, 241, 1.0);
-            } else if (checkDateTime.inMinutes > 0 &&
-                checkDateTime.inMinutes <= 60) {
+            } else if (checkDateTime.inMinutes >= 0 &&
+                checkDateTime.inMinutes < 60) {
               cardcolord = Color.fromRGBO(231, 76, 60, 1.0);
-            } else if (checkDateTime.inMinutes > 60 &&
+            } else if (checkDateTime.inMinutes >= 60 &&
                 checkDateTime.inMinutes < 120) {
+              cardcolord = Color.fromRGBO(243, 156, 18, 1.0);
+            } else if (checkDateTime.inMinutes >= 120 &&
+                checkDateTime.inMinutes < 240) {
               cardcolord = Color.fromRGBO(243, 156, 18, 1.0);
             } else {
               cardcolord = Color.fromRGBO(46, 204, 113, 1.0);
@@ -160,7 +164,8 @@ class ShppingDetail extends StatelessWidget {
                                 'Ship-To: ${snapshot.data[i].shipTo.toString().trim()}'),
                           ),
                           Expanded(
-                            child: Text('${shipmentDate}'),
+                            child: Text(
+                                '${DateFormat('yyyy-MM-dd kk:mm').format(shipmentDate)}'),
                           ),
                         ],
                       ),
@@ -169,7 +174,7 @@ class ShppingDetail extends StatelessWidget {
                         children: <Widget>[
                           Expanded(
                             child: Text(
-                              'Start: ${serviceStart}',
+                              'Start: ${DateFormat('yyyy-MM-dd kk:mm').format(serviceStart)}',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -181,7 +186,7 @@ class ShppingDetail extends StatelessWidget {
                           ),
                           Expanded(
                             child: Text(
-                              'End: ${serviceEnd}',
+                              'End: ${DateFormat('yyyy-MM-dd kk:mm').format(serviceEnd)}',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),

@@ -47,7 +47,7 @@ class ShppingDetail extends StatelessWidget {
             //rgba(231, 76, 60,1.0) red
             //rgba(243, 156, 18,1.0) yellow
             //rgba(46, 204, 113,1.0) green
-
+            print('${checkDateTime.inMinutes}');
             var cardcolord = new Color.fromRGBO(236, 240, 241, 1.0);
             if (checkDateTime.inMinutes < 0) {
               cardcolord = Color.fromRGBO(236, 240, 241, 1.0);

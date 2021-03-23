@@ -58,230 +58,180 @@ class _ChartFamliy extends State<ChartFamliy> {
             final values = snapshot.data.map((e) => e).toList();
 
             return Scaffold(
-              body: Column(
-                children: <Widget>[
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('Team'),
-                        Text('Total'),
-                        Text('Wait - Pack'),
-                        Text('Wait - Invoice'),
-                        Text('Wait - PGI'),
-                        Text('Failed - WaitPGI')
-                      ],
-                    ),
-                    //flex: 6,
+              body: DataTable(
+                columns: <DataColumn>[
+                  DataColumn(label: Text('Team')),
+                  DataColumn(label: Text('Total')),
+                  DataColumn(label: Text('Wait - Pack')),
+                  DataColumn(label: Text('Wait - Invoice')),
+                  DataColumn(label: Text('Wait - PGI')),
+                  DataColumn(label: Text('Failed - WaitPGI'))
+                ],
+                rows: <DataRow>[
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('Super Down')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'Super Down').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'Super Down').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'Super Down').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'Super Down').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'Super Down').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('Super Down'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'Super Down').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'Super Down').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'Super Down').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'Super Down').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'Super Down').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('54 Downs')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Downs').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Downs').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Downs').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Downs').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Downs').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('54 Downs'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Downs').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Downs').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Downs').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Downs').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Downs').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('54 Non-Down')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Non-Down').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Non-Down').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Non-Down').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Non-Down').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Non-Down').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('54 Non-Down'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Non-Down').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Non-Down').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Non-Down').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Non-Down').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Non-Down').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('54 Non-Down SO')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Non-Down SO').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Non-Down SO').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Non-Down SO').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Non-Down SO').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 Non-Down SO').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('54 Non-Down SO'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Non-Down SO').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Non-Down SO').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Non-Down SO').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Non-Down SO').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 Non-Down SO').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('54 TPM')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 TPM').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('54 TPM'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 TPM').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('54 TPM')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 TPM').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '54 TPM').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('54 TPM-SO'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 TPM-SO').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 TPM-SO').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 TPM-SO').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 TPM-SO').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '54 TPM-SO').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('89 Downs')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 Downs').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 Downs').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 Downs').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 Downs').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 Downs').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('89 Downs'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 Downs').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 Downs').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 Downs').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 Downs').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 Downs').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('89 TPM')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 TPM').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 TPM').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 TPM').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 TPM').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 TPM').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('89 TPM'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 TPM').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 TPM').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 TPM').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 TPM').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 TPM').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('89 TPM-SO')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 TPM-SO').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 TPM-SO').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 TPM-SO').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 TPM-SO').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == '89 TPM-SO').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('89 TPM-SO'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 TPM-SO').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 TPM-SO').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 TPM-SO').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 TPM-SO').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == '89 TPM-SO').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('FSL - TXG')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'FSL - TXG').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'FSL - TXG').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'FSL - TXG').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'FSL - TXG').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'FSL - TXG').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('FSL - TXG'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'FSL - TXG').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'FSL - TXG').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'FSL - TXG').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'FSL - TXG').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'FSL - TXG').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
-                  ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('FSL - TNN'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'FSL - TNN').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'FSL - TNN').where((element) => element.status == 'Wait - Pack').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'FSL - TNN').where((element) => element.status == 'Wait - Invoice').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'FSL - TNN').where((element) => element.status == 'Wait - PGI').length}'),
-                        Text(
-                            '${values.where((element) => element.teamsName == 'FSL - TNN').where((element) => element.status == 'Failed - WaitPGI').length}'),
-                      ],
-                    ),
-                    //flex: 6,
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('FSL - TNN')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'FSL - TNN').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'FSL - TNN').where((element) => element.status == 'Wait - Pack').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'FSL - TNN').where((element) => element.status == 'Wait - Invoice').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'FSL - TNN').where((element) => element.status == 'Wait - PGI').length}')),
+                      DataCell(Text(
+                          '${values.where((element) => element.teamsName == 'FSL - TNN').where((element) => element.status == 'Failed - WaitPGI').length}'))
+                    ],
                   ),
                 ],
               ),

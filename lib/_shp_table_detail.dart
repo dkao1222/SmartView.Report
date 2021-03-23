@@ -30,16 +30,16 @@ class ShppingDetail extends StatelessWidget {
                 .difference(DateTime.now().add(Duration(hours: -8)));
                 */
             var shipmentDate = DateTime.tryParse(
-                    snapshot.data[i].shipmentDateTime.toString() ?? '')
-                .add(Duration(hours: -8));
+                    snapshot.data[i].shipmentDateTime.toString() ?? '');
+                //.add(Duration(hours: -8));
             //snapshot.data[i].shipmentDateTime.toString().trim()
             var serviceStart = DateTime.tryParse(
-                    snapshot.data[i].serviceStart.toString() ?? '')
-                .add(Duration(hours: -8));
+                    snapshot.data[i].serviceStart.toString() ?? '');
+                //.add(Duration(hours: -8));
 
             var serviceEnd =
-                DateTime.tryParse(snapshot.data[i].serviceEnd.toString() ?? '')
-                    .add(Duration(hours: -8));
+                DateTime.tryParse(snapshot.data[i].serviceEnd.toString() ?? '');
+                    //.add(Duration(hours: -8));
 
             var checkDateTime = serviceEnd.difference(DateTime.now());
             print(checkDateTime.inMinutes);

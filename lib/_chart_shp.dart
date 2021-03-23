@@ -65,7 +65,10 @@ class _ChartFamliy extends State<ChartFamliy> {
                   DataColumn(label: Text('Wait - Pack')),
                   DataColumn(label: Text('Wait - Invoice')),
                   DataColumn(label: Text('Wait - PGI')),
-                  DataColumn(label: Text('Failed - WaitPGI'))
+                  DataColumn(
+                      label: Text(
+                    'Failed - WaitPGI',
+                  ))
                 ],
                 rows: <DataRow>[
                   DataRow(
